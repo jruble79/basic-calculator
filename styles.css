@@ -43,7 +43,7 @@ html {
     overflow-x: scroll;
     overflow-y: hidden;
 }
-#result {
+#display {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 7rem;
