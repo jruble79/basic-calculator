@@ -6,9 +6,9 @@ const button = document.getElementsByTagName('button');
 
 keyPad.addEventListener('click', e => {
     if (e.target.className == "operator") {
-        console.log("I'm an operator!");
+        console.log(e.target.dataset.operation);
     } else {
-        console.log("I'm a number-thing!");
+        console.log(e.target.textContent);
     }
 
 });
