@@ -44,6 +44,7 @@ function getNumber() {
         numValA = numValA + numberInput;
         displayData(numValA);
     } else {
+        numValB = '';
         numValB = numValB + numberInput;
         displayData(numValB);
     }
