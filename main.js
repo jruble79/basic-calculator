@@ -1,83 +1,85 @@
 
-// const calculator = document.getElementById('calculator');
-const dataDisplay = document.getElementById('data-display');
-const keyPad = document.getElementById('keypad');
-const button = document.getElementsByTagName('button');
+
 const display = document.getElementById('data-display');
-let keyPress = '';
+const keyPad = document.getElementById('keypad');
+
+let numberInput;
 let numValA = '';
 let numValB = '';
-let methodCount = 0;
-let calculatedValue;
+let result;
+let operation;
+let operationA;
+let operationB;
+let i = 0;
 
 
-const divide = (numValA, numValB) => numValA / numValB;
-const multiply = (numValA, numValB) => numValA * numValB;
-const subtract = (numValA, numValB) => numValA - numValB;
-const add = (numValA, numValB) => numValA + numValB;
+// Click to create an initial number value
+    // Display numbers as they are clicked
+    // Assign value to an initial-variable when operator is clicked
+
+// Click to choose an operation to perform
+    // Display operation symbol
+    // Assign operation to variable when clicked
+
+// Click to create a second number value
+    // Display numbers as they are clicked
+    // Assign value to a second-variable when operator is clicked
+
+// Click an operator to get result
+    // Create operation
+        // Get initial-variable
+        // Get operation variable
+        // Get second-variable
+    // Perform calculation
+    // Display result value
+    // Assign result value to the initial-variable
 
 
-/////////////////////////////////////////////////////////////////
-// FUNCTIONS
-/////////////////////////////////////////////////////////////////
-
-// Displays keyPress data to data-display
 function displayData(input) {
-
-    if (input == "divide") {input = "÷"};
-    if (input == "multiply") {input = "&times;"};
-    if (input == "minus") {input = "-"};
-    if (input == "add") {input = "+"};
-    if (input == "toggle") {input = "&MinusPlus;"};
-    if (input == "clear") {input = ""};
-    if (input == "calculate") {input = ""};
-
     display.innerHTML = `<div id="display">${input}</div>`;
-}
+};
 
+function getNumber() {
+    if (i == 0) {
+        numValA = numValA + numberInput;
+        displayData(numValA);
+    } else {
+        numValB = numValB + numberInput;
+        displayData(numValB);
+    }
+};
 
-/////////////////////////////////////////////////////////////////
-// PROCESSES
-/////////////////////////////////////////////////////////////////
+function prepareToOperate() {
+    displayData(operation);
+    if (i == 1) {
+        operationA = operation;
+    } else {
+        operationB = operation;
+        letsOperate(operationA);
+    }
+};
 
-// Capture button presses
+function letsOperate() {
+    if (operationA == "divide") {
+        numValA /= numValB;
+    } else if (operationA == "multiply") {
+        numValA *= numValB;
+    } else if (operationA == "minus") {
+        numValA -= numValB;
+    } else if (operationA == "add") {
+        numValA += numValB;
+    };
+    displayData(numValA);
+    i = 1;
+};
 
 keyPad.addEventListener('click', e => {
-
-    // Sort into numbers and operators
-
     if (e.target.className == "operator") {
-        keyPress = e.target.dataset.operation;
-        methodCount ++;
+        operation = e.target.dataset.operation;
+        i++;
+        prepareToOperate(operation);
     } else {
-        keyPress = e.target.textContent;
-        number = keyPress;
+        numberInput = e.target.textContent;
+        getNumber(numberInput);
     }
-
-    // Display button press value to data-display
-
-    displayData(keyPress);
-
-    // Get first numVal
-
-    if (methodCount == 0 && e.target.className != "operator") {
-        numValA = numValA + number;
-        displayData(numValA);
-        number = '';
-    } 
-    
-    // Get second numVal
-    
-      else if (methodCount == 1 && e.target.className != "operator") {
-        numValB = numValB + number;
-        displayData(numValB);
-        number = '';
-    }
-
-    // Perform calculation
-
-      else if (methodCount == 2) {
-
-    }
-    
 });
