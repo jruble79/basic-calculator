@@ -44,7 +44,6 @@ function getNumber() {
         numValA = numValA + numberInput;
         displayData(numValA);
     } else {
-        numValB = '';
         numValB = numValB + numberInput;
         displayData(numValB);
     }
@@ -70,8 +69,14 @@ function letsOperate() {
     } else if (operationA == "add") {
         numValA += numValB;
     };
+
     displayData(numValA);
-    i = 1;
+
+    if (operationB == "calculate") {
+        numValA -= 0;
+        i = 0; 
+    };
+
 };
 
 keyPad.addEventListener('click', e => {
