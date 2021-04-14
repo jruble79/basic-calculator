@@ -16,18 +16,18 @@ let i = 0;
 keyPad.addEventListener('click', e => {
     if (e.target.className === 'operator') {
         displayedOperation = e.target.dataset.action;
-        canWeCalculate();
-        getFirstOperation();
-        getFirstNumber();
+        canWeCalculate(); // CHECKS IF THIS IS THE SECOND OPERATOR PUSH. CALCULATES IF TRUE
+        getFirstOperation(); // SAVES FIRST OPERATION TO VARIABLE
+        getFirstNumber(); // // ASSIGNS NUMBER IN DISPLAY TO VARIABLE
     } else if (e.target === clearKey) {
-        clearData();
+        clearData(); // RESETS ALL VARIABLES TO INITIAL STATE
     } else if (e.target === toggleKey) {
-        toggleNumber();
+        toggleNumber(); // ALTERNATES NUMBER FROM POSITIVE TO NEGATIVE
     } else if (e.target === equalsKey) {
-        calculateThis();
+        calculateThis(); // PERFORMS CALCULATION
     } else {
         numberInput = e.target.textContent;
-        createNumber(numberInput);
+        createNumber(numberInput); // CREATES NUMBER STRING
     };
 });
 
@@ -47,13 +47,13 @@ function getFirstOperation() { // ASSIGNS OPERATION IN DISPLAY TO VARIABLE
     displayedOperation = '';
 }
 
-function toggleNumber() {
+function toggleNumber() { // ALTERNATES NUMBER FROM POSITIVE TO NEGATIVE
     displayedNumber = -1 * displayedNumber;
     displayedNumber = parseFloat(displayedNumber);
     displayData(displayedNumber);
 }
 
-function canWeCalculate() {
+function canWeCalculate() { // CHECKS IF THIS IS THE SECOND OPERATOR PUSH. CALCULATES IF TRUE
     i++;
     if (i === 2) {
         i--;
@@ -61,7 +61,7 @@ function canWeCalculate() {
     }
 };
 
-function calculateThis() {
+function calculateThis() { // PERFORMS CALCULATION
     if (operation === 'divide') {
         result = parseFloat(firstNumber) / parseFloat(displayedNumber);
     } else if (operation === 'multiply') {
@@ -72,12 +72,12 @@ function calculateThis() {
         result = parseFloat(firstNumber) + parseFloat(displayedNumber);
     };
 
-    console.log(`
-    i=${i}
-    firstNumber=${firstNumber}
-    operation=${operation}
-    displayedNumber=${displayedNumber}
-    result=${result}`);
+    // console.log(`
+    // i=${i}
+    // firstNumber=${firstNumber}
+    // operation=${operation}
+    // displayedNumber=${displayedNumber}
+    // result=${result}`);
     
     displayData(result);
     displayedNumber = result;
@@ -89,7 +89,7 @@ function displayData(input) { // DISPLAYS INPUT VALUE
     display.innerHTML = `<div id="main-display">${input}</div>`;
 };
 
-function clearData() {
+function clearData() { // RESETS ALL VARIABLES TO INITIAL STATE
     firstNumber = 0;
     displayedNumber = 0;
     operation = '';
