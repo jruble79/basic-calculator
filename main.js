@@ -86,7 +86,7 @@ function calculateThis() {
 };
 
 function displayData(input) { // DISPLAYS INPUT VALUE
-    display.innerHTML = `<div id="display">${input}</div>`;
+    display.innerHTML = `<div id="main-display">${input}</div>`;
 };
 
 function clearData() {
