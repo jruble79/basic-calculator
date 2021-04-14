@@ -59,6 +59,7 @@ button {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, .5);
     background-color: rgba(255, 255, 255, 0.1);
+    transition: box-shadow .15s;
 }
 button:hover {
     background-color: rgba(255, 255, 255, 0.05);
@@ -67,6 +68,7 @@ button:hover {
 button:active {
     color: black;
     background-color: rgba(193, 193, 193, .5);
+    box-shadow: 0 0 50px 5px rgba(193, 193, 193, .5);
 }
 button:focus {
     outline: none;
