@@ -26,7 +26,7 @@ html {
     grid-template-rows: repeat(5, 75px);
     gap: 2px;
 }
-#back {
+#clear {
     grid-column: 1 / 3;
 }
 #return {
