@@ -4,7 +4,7 @@
 }
 html {
     font-size: 14px;
-    background-image: linear-gradient(rgb(61, 4, 126), rgb(38, 2, 80)) ;
+    background-image: linear-gradient(rgb(4, 75, 126), rgb(38, 2, 80)) ;
 }
 #container {
     display: flex;
@@ -66,7 +66,7 @@ button:hover {
 }
 button:active {
     color: black;
-    background-color: rgb(173, 129, 255);
+    background-color: rgba(193, 193, 193, .5);
 }
 button:focus {
     outline: none;
