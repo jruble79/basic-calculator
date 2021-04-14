@@ -82,7 +82,7 @@ function calculateThis() {
     displayData(result);
     displayedNumber = result;
     operation = '';
-
+    i = 0;
 };
 
 function displayData(input) { // DISPLAYS INPUT VALUE
