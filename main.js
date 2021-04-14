@@ -94,6 +94,7 @@ function clearData() { // RESETS ALL VARIABLES TO INITIAL STATE
     displayedNumber = 0;
     operation = '';
     displayedOperation = '';
+    result = 0;
     i = 0;
     displayData(displayedNumber);
     displayedNumber = '';
