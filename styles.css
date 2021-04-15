@@ -3,15 +3,55 @@
     box-sizing: border-box;
 }
 html {
+    height: 100vh;
     font-size: 14px;
-    background-image: linear-gradient(rgb(4, 75, 126), rgb(38, 2, 80)) ;
+    background-image: linear-gradient(rgb(4, 75, 126), rgb(38, 2, 80));
 }
+
+/* HEADER STYLES */
+
+header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+label, select {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+label {
+    color: rgba(255, 255, 255, 0.35);
+}
+select {
+    color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+select:focus-visible {
+    outline: none;
+}
+
+/* CALCULATOR STYLES */
+
 #container {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
     align-content: center;
-    height: 100vh
+    height: 90vh;
+    padding-bottom: 40px;
 }
 #calculator {
     display: grid;
