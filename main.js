@@ -111,7 +111,7 @@ const background = document.getElementById('background');
 const themeSelect = document.getElementById('color-themes');
 // const colorThemes = document.getElementsByTagName('option');
 
-function output() {
+function themeChange() {
     // console.log(themeSelect.options[themeSelect.selectedIndex].textContent);
     const colorTheme = themeSelect.options[themeSelect.selectedIndex].textContent;
     if (colorTheme === '1111111') {
@@ -127,5 +127,5 @@ function output() {
     } else {
         background.style.backgroundImage = 'linear-gradient(black, yellow, orange, green, blue, purple)';
     }
-}
+};
 
