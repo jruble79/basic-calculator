@@ -108,24 +108,73 @@ function clearData() { // RESETS ALL VARIABLES TO INITIAL STATE
 ///////////////////////////////////////////////////////////////////////////
 
 const background = document.getElementById('background');
+const button = document.querySelectorAll('button');
 const themeSelect = document.getElementById('color-themes');
 // const colorThemes = document.getElementsByTagName('option');
 
+const themes = [
+    {
+        theme: 'Dusk',
+        background: 'linear-gradient(#044b7e, #1e0140)',
+        buttonBackground: 'rgba(255, 255, 255, 0.1)',
+        buttonText: 'rgba(255, 255, 255, .5)',
+        displayText: 'rgba(255, 255, 255, 0.5)',
+        outline: '1px solid rgba(255, 255, 255, 0.25)',
+        header: 'rgba(255, 255, 255, 0.35)',
+    },
+    {
+        theme: 'Midnight',
+        background: 'linear-gradient(#000000, #172433)',
+        buttonBackground: 'rgba(255, 255, 255, 0.1)',
+        buttonText: 'rgba(255, 255, 255, .5)',
+        displayText: 'rgba(255, 255, 255, 0.5)',
+        outline: '1px solid rgba(255, 255, 255, 0.25)',
+        header: 'rgba(255, 255, 255, 0.35)',
+    },
+    {
+        theme: 'Daybreak',
+        background: 'linear-gradient(#0d212e, #b3ae7f)',
+        buttonBackground: 'rgba(255, 255, 255, 0.1)',
+        buttonText: 'rgba(255, 255, 255, .5)',
+        displayText: 'rgba(255, 255, 255, 0.5)',
+        outline: '1px solid rgba(255, 255, 255, 0.25)',
+        header: 'rgba(255, 255, 255, 0.35)',
+    },
+    {
+        theme: 'Midday',
+        background: 'linear-gradient(#fff185, #f5efc6)',
+        buttonBackground: 'rgba(255, 255, 255, 0.1)',
+        buttonText: 'rgba(255, 255, 255, .5)',
+        displayText: 'rgba(255, 255, 255, 0.5)',
+        outline: '1px solid rgba(255, 255, 255, 0.25)',
+        header: 'rgba(255, 255, 255, 0.35)',
+    },
+];
+
+
+
 function themeChange() {
-    // console.log(themeSelect.options[themeSelect.selectedIndex].textContent);
-    const colorTheme = themeSelect.options[themeSelect.selectedIndex].textContent;
-    if (colorTheme === '1111111') {
-        background.style.backgroundImage = 'linear-gradient(rgb(4, 75, 126), rgb(38, 2, 80))';
-    } else if (colorTheme === '2222222') {
-        background.style.backgroundImage = 'linear-gradient(darkgrey, black)';
-    } else if (colorTheme === '3333333') {
-        background.style.backgroundImage = 'linear-gradient(slategray, green)';
-    } else if (colorTheme === '4444444') {
-        background.style.backgroundImage = 'linear-gradient(red, black)';
-    } else if (colorTheme === '5555555') {
-        background.style.backgroundImage = 'linear-gradient(purple, blue, red)';
-    } else {
-        background.style.backgroundImage = 'linear-gradient(black, yellow, orange, green, blue, purple)';
-    }
+    // const colorTheme = themeSelect.options[themeSelect.selectedIndex].textContent;
+    // if (colorTheme === 'Dusk') {
+    //     background.style.backgroundImage = 'linear-gradient(#044b7e, #1e0140)';
+    // } else if (colorTheme === 'Midnight') {
+    //     background.style.backgroundImage = 'linear-gradient(#000000, #172433)';
+    // } else if (colorTheme === 'Daybreak') {
+    //     background.style.backgroundImage = 'linear-gradient(#0d212e, #b3ae7f)';
+    // } else if (colorTheme === 'Midday') {
+    //     background.style.backgroundImage = 'linear-gradient(#fff185, #f5efc6)';
+    // }
+
+    // console.log(themes[themeSelect.selectedIndex].background);
+
+    background.style.backgroundImage = themes[themeSelect.selectedIndex].background;
 };
+
+function buttonBackgroundChange() {
+    for (i=0; i<button.length; i++) {
+        // button[i].style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        button[i].style.backgroundColor = themes[i].buttonBackground;
+    };
+}
+
 
