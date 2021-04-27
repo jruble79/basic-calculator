@@ -108,9 +108,11 @@ function clearData() { // RESETS ALL VARIABLES TO INITIAL STATE
 ///////////////////////////////////////////////////////////////////////////
 
 const background = document.getElementById('background');
+const calculator = document.getElementById('calculator');
+const mainDisplay = document.getElementById('main-display');
 const button = document.querySelectorAll('button');
 const themeSelect = document.getElementById('color-themes');
-// const colorThemes = document.getElementsByTagName('option');
+const header = document.querySelectorAll('h1, select, label');
 
 const themes = [
     {
@@ -143,38 +145,38 @@ const themes = [
     {
         theme: 'Midday',
         background: 'linear-gradient(#fff185, #f5efc6)',
-        buttonBackground: 'rgba(255, 255, 255, 0.1)',
-        buttonText: 'rgba(255, 255, 255, .5)',
-        displayText: 'rgba(255, 255, 255, 0.5)',
-        outline: '1px solid rgba(255, 255, 255, 0.25)',
-        header: 'rgba(255, 255, 255, 0.35)',
+        buttonBackground: 'rgba(0, 0, 0, .5)',
+        buttonText: 'rgba(255, 145, 255, .5)',
+        displayText: 'rgba(0, 0, 0, .5)',
+        outline: '1px solid rgba(0, 0, 0, 0.25)',
+        header: 'rgba(0, 0, 0, .35)',
     },
 ];
 
-
-
 function themeChange() {
-    // const colorTheme = themeSelect.options[themeSelect.selectedIndex].textContent;
-    // if (colorTheme === 'Dusk') {
-    //     background.style.backgroundImage = 'linear-gradient(#044b7e, #1e0140)';
-    // } else if (colorTheme === 'Midnight') {
-    //     background.style.backgroundImage = 'linear-gradient(#000000, #172433)';
-    // } else if (colorTheme === 'Daybreak') {
-    //     background.style.backgroundImage = 'linear-gradient(#0d212e, #b3ae7f)';
-    // } else if (colorTheme === 'Midday') {
-    //     background.style.backgroundImage = 'linear-gradient(#fff185, #f5efc6)';
-    // }
+    const indexedValue = themes[themeSelect.selectedIndex];
+    let myStyleSheet = document.styleSheets[0];
 
-    // console.log(themes[themeSelect.selectedIndex].background);
+    background.style.backgroundImage = indexedValue.background;
+    // myStyleSheet.insertRule(`html {background-image: ${indexedValue.background} !important;}`);
+    calculator.style.outline = indexedValue.outline;
+    // myStyleSheet.insertRule(`#calculator {outline: ${indexedValue.outline} !important;}`);
+    mainDisplay.style.color = indexedValue.displayText;
+    // myStyleSheet.insertRule(`#main-display {color: ${indexedValue.displayText} !important;}`);
 
-    background.style.backgroundImage = themes[themeSelect.selectedIndex].background;
+    headerChange();
+    buttonChange();
 };
 
-function buttonBackgroundChange() {
+function buttonChange() {
     for (i=0; i<button.length; i++) {
-        // button[i].style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-        button[i].style.backgroundColor = themes[i].buttonBackground;
+        button[i].style.backgroundColor = themes[themeSelect.selectedIndex].buttonBackground;
+        button[i].style.color = themes[themeSelect.selectedIndex].buttonText;
     };
-}
+};
 
-
+function headerChange() {
+    for (i=0; i<header.length; i++) {
+        header[i].style.color = themes[themeSelect.selectedIndex].header;
+    };
+};
