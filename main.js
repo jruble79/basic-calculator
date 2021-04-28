@@ -113,6 +113,7 @@ const mainDisplay = document.getElementById('main-display');
 const button = document.querySelectorAll('button');
 const themeSelect = document.getElementById('color-themes');
 const header = document.querySelectorAll('h1, select, label');
+const dataDisplay = document.getElementById('data-display');
 
 const themes = [
     {
@@ -158,11 +159,9 @@ function themeChange() {
     let myStyleSheet = document.styleSheets[0];
 
     background.style.backgroundImage = indexedValue.background;
-    // myStyleSheet.insertRule(`html {background-image: ${indexedValue.background} !important;}`);
     calculator.style.outline = indexedValue.outline;
-    // myStyleSheet.insertRule(`#calculator {outline: ${indexedValue.outline} !important;}`);
-    mainDisplay.style.color = indexedValue.displayText;
-    // myStyleSheet.insertRule(`#main-display {color: ${indexedValue.displayText} !important;}`);
+    myStyleSheet.deleteRule(0); //Removes anything added to the first line of the CSS Rules list
+    myStyleSheet.insertRule(`#main-display {color: ${indexedValue.displayText} !important;}`); //Adds this to the top of the CSS list
 
     headerChange();
     buttonChange();
