@@ -146,10 +146,10 @@ const themes = [
     {
         theme: 'Midday',
         background: 'linear-gradient(#fff185, #f5efc6)',
-        buttonBackground: 'rgba(0, 0, 0, .5)',
-        buttonText: 'rgba(255, 145, 255, .5)',
+        buttonBackground: 'rgba(255, 254, 206, 1)',
+        buttonText: 'rgba(0, 0, 0, .5)',
         displayText: 'rgba(0, 0, 0, .5)',
-        outline: '1px solid rgba(0, 0, 0, 0.25)',
+        outline: '1px solid rgba(255, 254, 206, 1)',
         header: 'rgba(0, 0, 0, .35)',
     },
 ];
