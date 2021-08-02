@@ -11,7 +11,6 @@ let numberInput = '';
 let firstNumber = 0;
 let result = '';
 let operation = '';
-let i = 0;
 
 keyPad.addEventListener('click', e => {
     if (e.target.className === 'operator') {
@@ -54,9 +53,7 @@ function toggleNumber() { // ALTERNATES NUMBER FROM POSITIVE TO NEGATIVE
 }
 
 function canWeCalculate() { // CHECKS IF THIS IS THE SECOND OPERATOR PUSH. CALCULATES IF TRUE
-    i++;
-    if (i === 2) {
-        i--;
+    if (operation != '') {
         calculateThis();
     }
 };
@@ -71,18 +68,10 @@ function calculateThis() { // PERFORMS CALCULATION
     } else if (operation === 'add') {
         result = parseFloat(firstNumber) + parseFloat(displayedNumber);
     };
-
-    // console.log(`
-    // i=${i}
-    // firstNumber=${firstNumber}
-    // operation=${operation}
-    // displayedNumber=${displayedNumber}
-    // result=${result}`);
     
     displayData(result);
     displayedNumber = result;
     operation = '';
-    i = 0;
 };
 
 function displayData(input) { // DISPLAYS INPUT VALUE
