@@ -75,7 +75,7 @@ function calculateThis() { // PERFORMS CALCULATION
 };
 
 function displayData(input) { // DISPLAYS INPUT VALUE
-    display.innerHTML = `<div id="main-display">${input}</div>`;
+    display.innerHTML = `<div class="text-color" id="main-display">${input}</div>`;
 };
 
 function clearData() { // RESETS ALL VARIABLES TO INITIAL STATE
@@ -106,65 +106,38 @@ const dataDisplay = document.getElementById('data-display');
 
 const themes = [
     {
-        theme: 'Dusk',
-        background: 'linear-gradient(#044b7e, #1e0140)',
-        buttonBackground: 'rgba(255, 255, 255, 0.1)',
-        buttonText: 'rgba(255, 255, 255, .5)',
-        displayText: 'rgba(255, 255, 255, 0.5)',
-        outline: '1px solid rgba(255, 255, 255, 0.25)',
-        header: 'rgba(255, 255, 255, 0.35)',
+        'theme': 'Dusk',
+        '--background': 'linear-gradient(hsl(205, 100%, 25%), hsl(268, 100%, 25%)',
+        '--button-background': 'hsl(var(--white), .1)',
+        '--text': 'hsl(var(--white), .5)',
+        '--outline': '1px solid hsl(var(--white), .25)'
     },
     {
-        theme: 'Midnight',
-        background: 'linear-gradient(#000000, #172433)',
-        buttonBackground: 'rgba(255, 255, 255, 0.1)',
-        buttonText: 'rgba(255, 255, 255, .5)',
-        displayText: 'rgba(255, 255, 255, 0.5)',
-        outline: '1px solid rgba(255, 255, 255, 0.25)',
-        header: 'rgba(255, 255, 255, 0.35)',
+        'theme': 'Midnight',
+        '--background': 'linear-gradient(black, hsl(212, 38%, 15%))',
+        '--button-background': 'hsl(var(--white), .1)',
+        '--text': 'hsl(var(--white), .5)',
+        '--outline': '1px solid hsl(var(--white), .25)'
     },
     {
-        theme: 'Daybreak',
-        background: 'linear-gradient(#0d212e, #b3ae7f)',
-        buttonBackground: 'rgba(255, 255, 255, 0.1)',
-        buttonText: 'rgba(255, 255, 255, .5)',
-        displayText: 'rgba(255, 255, 255, 0.5)',
-        outline: '1px solid rgba(255, 255, 255, 0.25)',
-        header: 'rgba(255, 255, 255, 0.35)',
+        'theme': 'Daybreak',
+        '--background': 'linear-gradient(hsl(204, 56%, 12%), hsl(54, 25%, 60%))',
+        '--button-background': 'hsl(var(--white), .1)',
+        '--text': 'hsl(var(--white), .5)',
+        '--outline': '1px solid hsl(var(--white), .25)'
     },
     {
-        theme: 'Midday',
-        background: 'linear-gradient(#fff185, #f5efc6)',
-        buttonBackground: 'rgba(255, 254, 206, 1)',
-        buttonText: 'rgba(0, 0, 0, .5)',
-        displayText: 'rgba(0, 0, 0, .5)',
-        outline: '1px solid rgba(255, 254, 206, 1)',
-        header: 'rgba(0, 0, 0, .35)',
+        'theme': 'Midday',
+        '--background': 'linear-gradient(hsl(53, 100%, 76%), hsl(52, 70%, 87%))',
+        '--button-background': 'hsl(var(--black), .1)',
+        '--text': 'hsl(var(--black), .5)',
+        '--outline': '1px solid hsl(var(--black), .1)'
     },
 ];
 
 function themeChange() {
-    const indexedValue = themes[themeSelect.selectedIndex];
-    let myStyleSheet = document.styleSheets[0];
-
-    background.style.backgroundImage = indexedValue.background;
-    calculator.style.outline = indexedValue.outline;
-    myStyleSheet.deleteRule(0); //Removes anything added to the first line of the CSS Rules list
-    myStyleSheet.insertRule(`#main-display {color: ${indexedValue.displayText} !important;}`); //Adds this to the top of the CSS list
-
-    headerChange();
-    buttonChange();
-};
-
-function buttonChange() {
-    for (i=0; i<button.length; i++) {
-        button[i].style.backgroundColor = themes[themeSelect.selectedIndex].buttonBackground;
-        button[i].style.color = themes[themeSelect.selectedIndex].buttonText;
-    };
-};
-
-function headerChange() {
-    for (i=0; i<header.length; i++) {
-        header[i].style.color = themes[themeSelect.selectedIndex].header;
-    };
+    let root = document.documentElement;
+    i = themeSelect.selectedIndex;
+    theme = themes[i];
+    for ( const prop in theme) { root.style.setProperty( `${prop}`, `${theme[prop]}` ) }
 };
