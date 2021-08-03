@@ -47,8 +47,7 @@ function getFirstOperation() { // ASSIGNS OPERATION IN DISPLAY TO VARIABLE
 }
 
 function toggleNumber() { // ALTERNATES NUMBER FROM POSITIVE TO NEGATIVE
-    displayedNumber = -1 * displayedNumber;
-    displayedNumber = parseFloat(displayedNumber);
+    displayedNumber = parseFloat(displayedNumber * (-1));
     displayData(displayedNumber);
 }
 
