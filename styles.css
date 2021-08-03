@@ -1,11 +1,23 @@
-
+:root {
+    --white: 0, 0%, 100%;
+    --background: linear-gradient(hsl(205, 100%, 25%), hsl(268, 100%, 25%));
+    --text: hsl(var(--white), .5);
+    --button-background: hsl(var(--white), .1);
+    --outline: 1px solid hsl(var(--white), .25);
+}
 * {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     box-sizing: border-box;
 }
 html {
     height: 100vh;
     font-size: 14px;
-    background-image: linear-gradient(#044b7e, #1e0140);
+    background-image: var(--background);
+}
+.text-color,
+button {
+    color: var(--text);
 }
 
 /* HEADER STYLES */
@@ -19,24 +31,17 @@ header {
     margin: auto;
 }
 h1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
     font-size: 1.25rem;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--text);
 }
 label, select {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
     font-size: 1rem;
 }
 label {
     padding-right: 1rem;
-    color: rgba(255, 255, 255, 0.35);
 }
 select {
-    color: rgba(255, 255, 255, 0.35);
-    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--text);
     border: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -61,7 +66,7 @@ select:focus-visible {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     padding: 40px 10px 10px 10px;
-    outline: 1px solid rgba(255, 255, 255, 0.25);
+    outline: var(--outline);
 }
 #keypad {
     display: grid;
@@ -82,26 +87,18 @@ select:focus-visible {
     overflow-y: hidden;
 }
 #main-display {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
     font-size: 7rem;
-    color: rgba(255, 255, 255, 0.5);
 }
 #mini-display {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
     font-size: 1.5rem;
     text-align: right;
-    color: rgba(255, 255, 255, 0.5);
 }
 button {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, .5);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--button-background);
     transition: box-shadow .15s;
 }
 button:hover {
@@ -110,7 +107,7 @@ button:hover {
 }
 button:active {
     color: black;
-    background-color: rgba(193, 193, 193, .5);
+    background-color: var(--button-background);
     box-shadow: 0 0 50px 5px rgba(193, 193, 193, .5);
 }
 button:focus {
