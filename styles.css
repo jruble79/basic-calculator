@@ -1,5 +1,6 @@
 :root {
     --white: 0, 0%, 100%;
+    --black: 0, 0%, 0%;
     --background: linear-gradient(hsl(205, 100%, 25%), hsl(268, 100%, 25%));
     --text: hsl(var(--white), .5);
     --button-background: hsl(var(--white), .1);
