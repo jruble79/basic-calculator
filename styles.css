@@ -12,9 +12,15 @@
     box-sizing: border-box;
 }
 html {
-    height: 100vh;
     font-size: 14px;
     background-image: var(--background);
+}
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
 }
 .text-color,
 button {
@@ -28,12 +34,11 @@ header {
     align-items: baseline;
     justify-content: space-between;
     padding: 0 3rem;
-    max-width: 1200px;
-    margin: auto;
+    width: 100%;
+    background-color: white;
 }
 h1 {
-    font-size: 1.25rem;
-    color: var(--text);
+    font-size: 1rem;
 }
 label, select {
     font-size: 1rem;
@@ -42,11 +47,8 @@ label {
     padding-right: 1rem;
 }
 select {
-    background-color: var(--text);
+    font-size: .95rem;
     border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 select:focus-visible {
     outline: none;
@@ -56,11 +58,10 @@ select:focus-visible {
 
 #container {
     display: flex;
-    flex-flow: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    height: 90vh;
-    padding-bottom: 40px;
 }
 #calculator {
     display: grid;
