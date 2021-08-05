@@ -1,5 +1,4 @@
 
-const display = document.getElementById('data-display');
 const keyPad = document.getElementById('keypad');
 const toggleKey = document.getElementById('toggle');
 const clearKey = document.getElementById('clear');
@@ -92,6 +91,7 @@ function calculateThis() { // PERFORMS CALCULATION
 };
 
 function displayData(input) { // DISPLAYS INPUT VALUE
+    const display = document.getElementById('data-display');
     display.innerHTML = `<div class="text-color" id="main-display">${input}</div>`;
 };
 
