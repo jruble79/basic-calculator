@@ -5,7 +5,7 @@ const toggleKey = document.getElementById('toggle');
 const clearKey = document.getElementById('clear');
 const equalsKey = document.getElementById('return');
 
-let number = 0;
+let number = '';
 let firstNumber = '';
 let secondNumber = '';
 let operation = '';
@@ -13,21 +13,27 @@ let result = '';
 
 keyPad.addEventListener('click', e => {
     if (e.target.className === 'operator') {
-        if (operation == '') {
+        if (operation == '') { // STARTS INITIAL CALCULATION
             operation = e.target.dataset.action;
+            checkForZero();
             firstNumber = number;
             number = '';    
-        } else {
-            calculateThis();
-            operation = e.target.dataset.action;
-            firstNumber = result;
+        } else { // CONTINUES CALCULATION CHAIN
+            calculateThis(); // CALCULATES USING PREEXISTING OPERATION
+            firstNumber = result; // ASSIGNS RESULT OF CALCULATION AS NEW FIRST NUMBER
+            operation = e.target.dataset.action; // ASSIGNS NEW OPERATION FOR ANY NEXT CALCULATION
             number = '';
         }
     } else if (e.target === clearKey) {
         clearData();
         displayData(0);
     } else if (e.target === toggleKey) {
-        toggleNumber();
+        if ( number == '0' || number == '') {
+            number = '-';
+            displayData('-');
+        } else {
+            toggleNumber();
+        };
     } else if (e.target === equalsKey) {
         calculateThis();
     } else {
@@ -42,20 +48,32 @@ function createNumber(numberInput) { // CREATES NUMBER STRING
 
 function toggleNumber() { // ALTERNATES NUMBER FROM POSITIVE TO NEGATIVE
     number = number * (-1);
-    displayData(number);
+}
+
+function checkForZero() {
+    if ( operation == 'divide' && number == '' ) {
+        clearData();
+        displayData('error');
+    } else if ( operation == 'divide' && number == '0' ) {
+        clearData();
+        displayData('error');
+    } else if ( number == '' ) {
+        number = 0;
+    }
 }
 
 function calculateThis() { // PERFORMS CALCULATION
-    secondNumber = number;
+    firstNumber = parseFloat(firstNumber)
+    secondNumber = parseFloat(number);
 
     if (operation === 'divide') {
-        result = parseFloat(firstNumber) / parseFloat(secondNumber);
+        result = firstNumber / secondNumber;
     } else if (operation === 'multiply') {
-        result = parseFloat(firstNumber) * parseFloat(secondNumber);
+        result = firstNumber * secondNumber;
     } else if (operation === 'minus') {
-        result = parseFloat(firstNumber) - parseFloat(secondNumber);
+        result = firstNumber - secondNumber;
     } else if (operation === 'add') {
-        result = parseFloat(firstNumber) + parseFloat(secondNumber);
+        result = firstNumber + secondNumber;
     };
     
     displayData(result);
