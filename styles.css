@@ -111,7 +111,6 @@ button:hover {
 button:active {
     color: black;
     background-color: var(--button-background);
-    box-shadow: 0 0 50px 5px rgba(193, 193, 193, .5);
 }
 button:focus {
     outline: none;
