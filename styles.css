@@ -102,7 +102,6 @@ button {
     border: 0;
     font-size: 1.5rem;
     background-color: var(--button-background);
-    transition: box-shadow .15s;
 }
 button:hover {
     background-color: rgba(255, 255, 255, 0.05);
